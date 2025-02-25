@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TechLibrary.Comunication.Requests;
+using TechLibrary.Comunication.Response;
 
 namespace TechLibrary.Api.Controllers
 {
@@ -7,9 +9,11 @@ namespace TechLibrary.Api.Controllers
     public class UsersController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Create()
+        [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status201Created)]
+        public IActionResult Create(RequestUserJson request)
         {
             return Created();
         }
     }
 }
+
